@@ -12,8 +12,4 @@ export class AboutPage {
 
   }
 
-  ngOnInit() {
-    this.photoService.loadSaved();
-  }
-
 }

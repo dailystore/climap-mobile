@@ -17,6 +17,7 @@ import { IonicStorageModule } from '@ionic/storage';
 
 import { Pro } from '@ionic/pro';
 import { Injectable, Injector } from '@angular/core';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 
 Pro.init('3f8a3e18', {
   appVersion: '0.0.1'
@@ -29,7 +30,7 @@ export class MyErrorHandler implements ErrorHandler {
   constructor(injector: Injector) {
     try {
       this.ionicErrorHandler = injector.get(IonicErrorHandler);
-    } catch(e) {
+    } catch (e) {
       // Unable to get the IonicErrorHandler provider, ensure
       // IonicErrorHandler has been added to the providers list below
     }
@@ -71,8 +72,9 @@ export class MyErrorHandler implements ErrorHandler {
     SplashScreen,
     Camera,
     IonicErrorHandler,
-    {provide: ErrorHandler, useClass: MyErrorHandler},
+    FileTransfer,
+    { provide: ErrorHandler, useClass: MyErrorHandler },
     PhotoProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }
